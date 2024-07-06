@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soft Drink Beverages Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="#">Soft Drinks by <span>रोनिक</span></a>
+        <ul class="menu-links">
+          <span id="close-menu-btn" class="material-symbols-outlined"
+            >close</span
+          >
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Categories</a></li>
+          <li><a href="#">About us</a></li>
+          <li><a href="#">Contact us</a></li>
+        </ul>
+        <span id="hamburger-btn" class="material-symbols-outlined">menu</span>
+      </nav>
+    </header>
+
+    <section class="hero-section">
+      <div class="content">
+        <h2>Discover Refreshing Soft Drink Beverages</h2>
+        <p>
+          Explore our wide range of beverages including tea, coffee, and soft
+          drinks. Perfect choices for every occasion!
+        </p>
+        <button>Order Now</button>
+      </div>
+    </section>
+
+    <section class="main-content">
+      <div class="container">
+        <h3>Our Best Seller</h3>
+        <div class="beverage-item">
+          <img src="./img/img1.jpg" alt="Soft Drink Beverage" />
+          <div class="beverage-description">
+            <h4>Sparkling Lemonade</h4>
+            <p>
+              Refreshingly crisp and zesty, our Sparkling Lemonade is a perfect
+              companion for sunny days.
+            </p>
+          </div>
+        </div>
+        <div class="beverage-item">
+          <img src="./img/img2.jpg" alt="Soft Drink Beverage" />
+          <div class="beverage-description">
+            <h4>Fruit Punch</h4>
+            <p>
+              Bursting with flavors of mixed fruits, our Fruit Punch is a
+              delightful treat for any occasion.
+            </p>
+          </div>
+        </div>
+        <div class="beverage-item">
+          <img src="./img/img3.jpg" alt="Soft Drink Beverage" />
+          <div class="beverage-description">
+            <h4>Boba Tea</h4>
+            <p>
+              Bursting with flavors of mixed fruits, our Fruit Punch is a
+              delightful treat for any occasion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="process-section">
+      <div class="container">
+        <h3>Our Process</h3>
+        <div class="process-item">
+          <h4>Packaging Process</h4>
+          <p>
+            Our beverages are carefully packaged to ensure freshness and
+            quality. Each product undergoes rigorous quality checks before being
+            packed and shipped to you.
+          </p>
+        </div>
+        <div class="process-item">
+          <h4>Delivery Process</h4>
+          <p>
+            We strive to deliver your order swiftly and securely. Our delivery
+            partners ensure that your beverages reach you in optimal condition,
+            adhering to the highest standards of service.
+          </p>
+        </div>
+        <div class="process-item">
+          <h4>Customer Service</h4>
+          <p>
+            Our dedicated customer service team is available to assist you with
+            any inquiries or concerns. We prioritize customer satisfaction and
+            are committed to providing excellent support.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Soft Drinks. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const header = document.querySelector("header");
+      const hamburgerBtn = document.querySelector("#hamburger-btn");
+      const closeMenuBtn = document.querySelector("#close-menu-btn");
+
+      hamburgerBtn.addEventListener("click", () =>
+        header.classList.toggle("show-mobile-menu")
+      );
+
+      closeMenuBtn.addEventListener("click", () => hamburgerBtn.click());
+
+      const images = ["./img/img4.jpg", "./img/img5.jpg", "./img/img6.jpg"];
+      let currentImageIndex = 0;
+
+      function rotateBackgroundImage() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        document.querySelector(
+          ".hero-section"
+        ).style.backgroundImage = `url('${images[currentImageIndex]}')`;
+      }
+
+      rotateBackgroundImage();
+
+      setInterval(rotateBackgroundImage, 5000);
+
+      const heroSection = document.querySelector(".hero-section");
+
+      heroSection.addEventListener("mousemove", function (e) {
+        const mouseX = e.pageX;
+        const mouseY = e.pageY;
+
+        const offsetX = -((window.innerWidth / 2 - mouseX) / 30);
+        const offsetY = -((window.innerHeight / 2 - mouseY) / 30);
+
+        heroSection.style.backgroundPosition = `${offsetX}px ${offsetY}px`;
+      });
+    </script>
+  </body>
+</html>
